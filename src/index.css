@@ -64,3 +64,10 @@ form > button {
 .test {
     display: none;
 }
+
+.img-result {
+    width: 300;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+}

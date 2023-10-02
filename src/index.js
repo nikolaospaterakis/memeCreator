@@ -6,6 +6,6 @@ import NewTesting from "./NewTesting";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <NewTesting/>
+        <NewTesting />
     </React.StrictMode>
 )

@@ -1,33 +1,39 @@
-import React from "react";
+import React from "react"
 
-
-export default function NewTesting() {
-
-    return(
-        greeting("Nikos")
-    )
+export default function App() {
+    const [contact, setContact] = React.useState({
+        firstName: "John",
+        lastName: "Doe",
+        phone: "+1 (719) 555-1212",
+        email: "itsmyrealname@example.com",
+        isFavorite: false
+    })
     
     
+    let starIcon = (contact.isFavorite)
     
-}
-
-function greeting(name) {
-
-    const date = new Date()
-    const hours = date.getHours()
-    let nowTime
-
-    if (hours >= 4  && hours < 12) {
-         nowTime = "morning"
-    } else if (hours >= 12  && hours < 17) {
-         nowTime = "afternoon"
-    } else if (hours >= 17  && hours < 20) {
-         nowTime = "evening"
-    } else {
-         nowTime = "night"
-    } 
-
-    return(
-    <h1>Good {nowTime} {name}! </h1>
+    function toggleFavorite() {
+        console.log("Toggle Favorite")
+    }
+    
+    return (
+        <main>
+            <article className="card">
+                <img src="./images/user.png" className="card--image" />
+                <div className="card--info">
+                    <img 
+                        src={`../images/star-empty.png`} 
+                        className="card--favorite"
+                        onClick={toggleFavorite}
+                    />
+                    <h2 className="card--name">
+                        {contact.firstName} {contact.lastName}
+                    </h2>
+                    <p className="card--contact">{contact.phone}</p>
+                    <p className="card--contact">{contact.email}</p>
+                </div>
+                
+            </article>
+        </main>
     )
 }
