@@ -8,11 +8,20 @@ export default function Main() {
 
     const memesArray= memesData.data.memes
     const randomNumber = Math.floor(Math.random() * memesArray.length)
-    const [memeImage, setMemeImage] = React.useState()
+    const [memeImage, setMemeImage] = React.useState({
+        topText: "",
+        bottomText: "",
+        randomImage: ""
+    })
     console.log(memeImage)
 
     function changeImg() {
-        setMemeImage(memesArray[randomNumber].url)
+        setMemeImage(prevMemeImage => {
+            return {
+                ...prevMemeImage,
+                randomImage: memesArray[randomNumber].url
+            }
+        })
     }
 
     return(
@@ -25,7 +34,7 @@ export default function Main() {
             <button type="button" onClick={changeImg}>Get a new image 🖼️ </button>
             </form>
             <img
-            src={memeImage}
+            src={memeImage.randomImage}
             className="img-result">
             </img>
         </div>
